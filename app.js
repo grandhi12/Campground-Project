@@ -165,7 +165,8 @@ app.use((err,req,res,next)=>{
     if(!err.message) err.message='Something is wrong'
     res.status(statuscode).render('./partials/error.ejs',{err})
 })
-app.listen(3000,()=>{
+const port = process.env.PORT || 3000
+app.listen(posr,()=>{
     console.log('listening')
 })
      
