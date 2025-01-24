@@ -1,0 +1,38 @@
+
+<head>
+    <style>.fixed-size {
+        width: 300px; /* Set the desired width */
+        height: 200px; /* Set the desired height */
+        object-fit: cover; /* Ensures the image covers the area without distortion */
+        border-radius: 8px; /* Optional: Add rounded corners for aesthetics */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow for better appearance */
+    }
+    </style>
+</head>
+
+
+<h1>all campgrounds</h1>
+<% for(let i of campgrounds){ %>
+    <div class="card mb-3">
+        <div class="row">
+            <div class="col-md-4">
+                <%if(i.images.length) {%>
+                <img class="img-fluid fixed-size" alt="" src="<%= i.images[0].url %>">
+                <% }else {%>
+                    <img class="img-fluid fixed-size" alt=""
+                        src="https://res.cloudinary.com/douqbebwk/image/upload/v1600103881/YelpCamp/lz8jjv2gyynjil7lswf4.png">
+                    <% } %>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title"><%= i.title %> </h5>
+                    <p class="card-text"><%= i.description %></p>
+                    <p class="card-text">
+                        <small class="text-muted"><%= i.location%></small>
+                    </p>
+                    <a class="btn btn-primary" href="/camp/<%=i._id%>">View <%=i.title%></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% } %>
