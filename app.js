@@ -33,20 +33,20 @@ const localStrategy =require('passport-local');
 const {isLogged}=require('./islogged')
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
-const uri='mongodb://127.0.0.1:27017/yelp-camp'
-
+const uri= process.env.DB_URL || 'mongodb://127.0.0.1:27017/yelp-camp'
+const secret= process.env.SECRET || 'thisshouldbeabettersecret!'
 const store = MongoStore.create({
     mongoUrl: uri,
     touchAfter: 24 * 60 * 60,
     crypto: {
-        secret: 'thisshouldbeabettersecret!'
+        secret
     }
 });
 
 const sessionConfig ={
     store,
     name: 'session',
-    secret : 'thisisasecret',
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie:{
