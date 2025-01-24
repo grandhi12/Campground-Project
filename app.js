@@ -64,7 +64,7 @@ app.use(methodOverride('_method'))
 app.use(express.static(path.join(__dirname,'public')))
 app.use(session(sessionConfig))
 app.use(flash());
-
+//useNewUrlParser
 app.use(expressLayouts);
 
 app.use(passport.initialize());
@@ -77,17 +77,14 @@ const { name } = require('ejs');
 // Set the default layout file (optional, defaults to "layout.ejs")
 app.set('layout', 'layouts/boilerplate');
 // mongodb://127.0.0.1:27017/yelp-camp
-mongoose.connect(uri,{
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
-//  .then(()=>{
-//     console.log('connected')
-//    })
-//    .catch(err=>{ 
-//     console.log('error')
-//     console.log(err) 
-//    })
+mongoose.connect(uri);
+  .then(()=>{
+     console.log('connected')
+    })
+    .catch(err=>{ 
+     console.log('error')
+     console.log(err) 
+    })
   
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
