@@ -77,7 +77,7 @@ const { name } = require('ejs');
 // Set the default layout file (optional, defaults to "layout.ejs")
 app.set('layout', 'layouts/boilerplate');
 // mongodb://127.0.0.1:27017/yelp-camp
-mongoose.connect(uri);
+mongoose.connect(uri)
   .then(()=>{
      console.log('connected')
     })
