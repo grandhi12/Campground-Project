@@ -166,7 +166,7 @@ app.use((err,req,res,next)=>{
     res.status(statuscode).render('./partials/error.ejs',{err})
 })
 const port = process.env.PORT || 3000
-app.listen(posr,()=>{
+app.listen(port,()=>{
     console.log('listening')
 })
      
