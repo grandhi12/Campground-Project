@@ -23,7 +23,7 @@ module.exports.newele=async(req,res)=>{
     const campgrounds=await Campground.findById(id).populate('reviews').populate('author');
     if(!campgrounds){
         req.flash('error','can\'t find the campground')
-        res.redirect('/camp')
+        return res.redirect('/camp')
     }
     res.render('element',{campgrounds})
 }
