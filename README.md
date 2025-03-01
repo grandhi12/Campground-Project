@@ -3,3 +3,4 @@ YelpCamp is a comprehensive full-stack web application that enables users to cre
 
 The application is built using Node.js, Express, MongoDB, and Bootstrap, with Passport.js managing user authentication.
 
+# Screenshots
